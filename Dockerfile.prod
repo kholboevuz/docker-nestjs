@@ -1,0 +1,18 @@
+FROM node:20
+
+LABEL authors="Sevinchbek"
+
+WORKDIR  /usr/src/app
+
+COPY  . .
+
+RUN npm install
+
+RUN npm run build
+
+RUN rm -rf ./src 
+
+EXPOSE 3001
+
+# npm run dev
+CMD [ "npm", "run", "start:prod" ]
